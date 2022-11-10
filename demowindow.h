@@ -2,6 +2,7 @@
 #define DEMOWINDOW_H
 
 #include <QMainWindow>
+#include "threadipportscan.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class DemoWindow; }
@@ -15,7 +16,17 @@ public:
     DemoWindow(QWidget *parent = nullptr);
     ~DemoWindow();
 
+public slots:
+    void slot_scan_progress(int);
+
+protected:
+    void closeEvent(QCloseEvent *event);
+
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::DemoWindow *ui;
+    ThreadIpPortScan threadipportscan;
 };
 #endif // DEMOWINDOW_H

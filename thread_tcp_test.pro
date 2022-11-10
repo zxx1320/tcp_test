@@ -18,11 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     ThreadTcpSocket/threadtcpsocket.cpp \
     main.cpp \
-    demowindow.cpp
+    demowindow.cpp \
+    threadipportscan.cpp
 
 HEADERS += \
     ThreadTcpSocket/threadtcpsocket.h \
-    demowindow.h
+    demowindow.h \
+    threadipportscan.h
 
 FORMS += \
     demowindow.ui
