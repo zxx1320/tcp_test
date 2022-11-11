@@ -2,6 +2,7 @@
 #define DEMOWINDOW_H
 
 #include <QMainWindow>
+#include <QStringList>
 #include "threadipportscan.h"
 
 QT_BEGIN_NAMESPACE
@@ -18,6 +19,7 @@ public:
 
 public slots:
     void slot_scan_progress(int);
+    void slot_scan_online_ip(QStringList);
 
 protected:
     void closeEvent(QCloseEvent *event);

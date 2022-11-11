@@ -58,6 +58,8 @@ void ThreadIpPortScan::run()
             //扫描完成，发送信号
             search_done();
             qDebug() << QThread::currentThreadId() << endl;
+            emit(signal_online_ip(m_qstringlist_onlineip));
+
         }
         sleep(1);
     }

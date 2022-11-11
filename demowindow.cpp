@@ -10,6 +10,7 @@ DemoWindow::DemoWindow(QWidget *parent)
     ui->setupUi(this);
 
     connect(&threadipportscan,&ThreadIpPortScan::signal_scan_progress,this,&DemoWindow::slot_scan_progress);
+    connect(&threadipportscan,&ThreadIpPortScan::signal_online_ip,this,&DemoWindow::slot_scan_online_ip);
     threadipportscan.start();
     qDebug() << QThread::currentThreadId() << endl;
 }
@@ -25,6 +26,16 @@ DemoWindow::~DemoWindow()
 void DemoWindow::slot_scan_progress(int value)
 {
     ui->progressBar->setValue(value);
+}
+
+void DemoWindow::slot_scan_online_ip(QStringList online_ip_list)
+{
+    ui->textEdit->clear();
+
+    foreach (QString ip, online_ip_list)
+    {
+        ui->textEdit->append(ip);
+    }
 }
 
 
